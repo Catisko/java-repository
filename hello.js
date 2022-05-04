@@ -74,3 +74,45 @@ disp(Zwierzętaidinozaury)
 var dinozaury
 dinozaury.join(" * ")
 disp(dinozaury.join(" * "))
+
+var punktyorientacyjne =[]
+punktyorientacyjne.push("mój dom")
+punktyorientacyjne.push("ścieżka przed domem")
+punktyorientacyjne.push("migajaca lampa")
+punktyorientacyjne.push("cieknacy hydrant")
+punktyorientacyjne.push("straz pozarna")
+disp(punktyorientacyjne)
+
+var matma = Math.random() * 10
+disp(matma)
+
+disp(Math.floor(5.3895879))
+
+
+var losoweslowa = ["wybuch", "pies", "ksiezniczka", "ogr"]
+var losowyindeks = Math.floor(Math.random() * 4)
+disp(losoweslowa[losowyindeks])
+
+
+var zdania = [
+    "brzmi dobrze",
+    "Tak, zdecydowanie",
+    "Nie jestem pewien",
+    "może nie dzisiaj?",
+    "komputer mówi nie",
+    "brzmi wspaniale",
+    "jest super-duper",
+    "bonkmaster"
+]
+//Powiniem zrobić sobie drinka?
+disp(zdania[Math.floor(Math.random() * zdania.length)])
+
+
+var kot = {
+    "łapy" : 4,
+    "imie" : "rademenes",
+    kolor : "kruczoczarny"
+}
+disp(kot.łapy)
+
+
