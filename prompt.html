@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Szubienica</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Szubienica!</h1>
+<script>
+// Utwórz tablicę ze słowami
+var słowa = [
+    "javascript",
+    "monter",
+    "niesamowity",
+    "piłka",
+    "zakola",
+    "kapsel",
+    "keniusz",
+    "monitor"
+]
+//Wybierz słowo losowe
+var słowo = słowa[Math.floor(Math.random() * słowa.length)]
+
+//Skonfiguruj tablicę z odpowiedziami
+var odpowiedzi = []
+for (var i = 0; i < słowo.length; i++) {
+    odpowiedzi[i] = "_"
+}
+var pozostałelitery = słowo.length;
+
+//Główna pętla gry 
+while (pozostałelitery > 0){
+    //Pokaż graczowi bieżący wynik
+    alert(odpowiedzi.join(" "))
+
+//Wczytaj strzał gracza
+var strzał = prompt("podaj literę")
+if (strzał=== null) {
+    //Wyjdź z głównej pętli gry
+    break
+} else if (strzał.length !== 1) {
+    alert("proszę podaj tylko jedną literę")
+} else {
+    //zaktualizuj stan gry na podstawie strzału
+    for(var j = 0; j < słowo.length; j++) {
+        if (słowo[j] === strzał) {
+            odpowiedzi[j] = strzał
+            pozostałelitery--
+        }
+    }
+}
+//Koniec głównej pętli gry 
+}
+
+//pokaż odpowiedzi i pogratuluj
+alert(odpowiedzi.join(" "))
+alert("Dobra robota, szukane słowo to " + słowo)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

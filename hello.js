@@ -1,4 +1,3 @@
-'use strict'
 
 function disp(text) {
     console.log(text)
@@ -114,5 +113,54 @@ var kot = {
     kolor : "kruczoczarny"
 }
 disp(kot.łapy)
+
+ disp(Object.keys(kot))
+
+
+var pies = {
+    łapy: 4,
+    imię: "Kapsel",
+    kolor: "Czarny",
+    jestkochany: true
+}
+disp(Object.keys(pies))
+
+
+
+
+var ania = { imie: "ania", wiek: 11, szczesliweliczby: [2, 4, 6, 10]}
+var Wojtek = {imie: "Wojtek", wiek: 17, szczesliweliczby: [3, 7, 11, 21]}
+var amelka = {imie: "Amelka", wiek: 15, szczesliweliczby: [11, 21, 37, 68]}
+var przyjaciele = [ania, Wojtek, amelka]
+disp(przyjaciele[0])
+
+
+var policzoneowce = 0
+for (policzoneowce = 0; policzoneowce < 10; policzoneowce++) {
+    console.log("owca numer " + policzoneowce + " juz policzone")
+}
+console.log("Chrrrrrrr")
+
+for(var x = 2; x < 100000000000000; x = x * 5){
+    console.log(x)
+}
+
+
+
+var cześć = function (imie) {
+    console.log ("cześć " + imie + "!")
+}
+disp(cześć("Wojtek"))
+
+
+var rysujwielerazy = function (ilerazy, corysować) {
+    for (var i = 0; i < ilerazy; i++) {
+        console.log(i + " " + corysować)
+    }
+}
+disp(rysujwielerazy(9, "kotki"))
+
+
+
 
 
