@@ -162,5 +162,10 @@ disp(rysujwielerazy(9, "kotki"))
 
 
 
+const min = 5;
+const max = 15;
 
+//dzięki zmiennym poprawia mi się czytelność kodu i łatwiej go zmieniać
+const random = Math.floor(Math.random()*(max-min+1)+min);
+console.log(random);
 

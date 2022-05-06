@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Szubienica</title>
     <meta charset="UTF-8">
@@ -7,67 +8,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Szubienica!</h1>
-<script>
-// Utwórz tablicę ze słowami
-var słowa = [
-    "javascript",
-    "monter",
-    "niesamowity",
-    "piłka",
-    "zakola",
-    "kapsel",
-    "keniusz",
-    "monitor"
-]
-//Wybierz słowo losowe
-var słowo = słowa[Math.floor(Math.random() * słowa.length)]
+    <script>
 
-//Skonfiguruj tablicę z odpowiedziami
-var odpowiedzi = []
-for (var i = 0; i < słowo.length; i++) {
-    odpowiedzi[i] = "_"
-}
-var pozostałelitery = słowo.length;
 
-//Główna pętla gry 
-while (pozostałelitery > 0){
-    //Pokaż graczowi bieżący wynik
-    alert(odpowiedzi.join(" "))
+        // Utwórz tablicę ze słowami
+        var słowa = [
+            "javascript",
+            "monter",
+            "niesamowity",
+            "piłka",
+            "zakola",
+            "kapsel",
+            "geniusz",
+            "monitor"
+        ]
+        //Wybierz słowo losowe
+        var słowo = słowa[Math.floor(Math.random() * słowa.length)]
 
-//Wczytaj strzał gracza
-var strzał = prompt("podaj literę")
-if (strzał=== null) {
-    //Wyjdź z głównej pętli gry
-    break
-} else if (strzał.length !== 1) {
-    alert("proszę podaj tylko jedną literę")
-} else {
-    //zaktualizuj stan gry na podstawie strzału
-    for(var j = 0; j < słowo.length; j++) {
-        if (słowo[j] === strzał) {
-            odpowiedzi[j] = strzał
-            pozostałelitery--
+        //Skonfiguruj tablicę z odpowiedziami
+        var odpowiedzi = []
+        for (var i = 0; i < słowo.length; i++) {
+            odpowiedzi[i] = "_"
         }
-    }
-}
-//Koniec głównej pętli gry 
-}
+        var pozostałelitery = słowo.length;
 
-//pokaż odpowiedzi i pogratuluj
-alert(odpowiedzi.join(" "))
-alert("Dobra robota, szukane słowo to " + słowo)
-</script>
+
+        //Główna pętla gry 
+        while (pozostałelitery > 0) {
+            //Pokaż graczowi bieżący wynik
+            alert(odpowiedzi.join(" "))
+
+            //Wczytaj strzał gracza
+            var strzał = prompt("podaj literę")
+            if (strzał === null) {
+                //Wyjdź z głównej pętli gry
+                break
+            } else if (strzał.length !== 1) {
+                alert("proszę podaj tylko jedną literę")
+            } else {
+                //zaktualizuj stan gry na podstawie strzału
+                pozostałeliteryTemp = pozostałelitery
+                for (var i = 0; i < słowo.length; i++) {
+                    if (słowo[i] === strzał) {
+                        odpowiedzi[i] = strzał
+                        pozostałelitery = pozostałelitery - 1
+                        alert("Poprawna odpowiedz")
+                    }
+                }
+                
+                if(pozostałeliteryTemp == pozostałelitery){
+                    alert("Niepoprawna odpowiedz")
+                }
+            }  
+        }
+        //kiedy gracz poda nieistniejaca literke wystaw komunikat o braku takiej literki
+
+
+        //2. zapamietuj dotychczasowe wybrane litery jezeli gracz drugi raz wybierze taka sama litere wystaw komunikat ze wystawil ponownie taka sama litere 
+
+
+
+        //Koniec głównej pętli gry 
+
+
+
+        //pokaż odpowiedzi i pogratuluj
+        alert(odpowiedzi.join(" "))
+        alert("Dobra robota, szukane słowo to " + słowo)
+    </script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
