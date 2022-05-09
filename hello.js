@@ -2,11 +2,11 @@
 function disp(text) {
     console.log(text)
 }
- 
- 
- var długiłańcuch = "Mój długi łańcuch jest długi";
-długiłańcuch.slice (1, 10);
-disp(długiłańcuch.slice (1, 10))
+
+
+var długiłańcuch = "Mój długi łańcuch jest długi";
+długiłańcuch.slice(1, 10);
+disp(długiłańcuch.slice(1, 10))
 
 
 "Hej tam co ty wyprawiasz".toUpperCase();
@@ -16,7 +16,7 @@ var Javascriptjestsuper = true;
 disp(Javascriptjestsuper);
 
 var prysznicwzięty = true
-var plecakspakowany = false 
+var plecakspakowany = false
 prysznicwzięty && plecakspakowany
 disp(prysznicwzięty && plecakspakowany)
 
@@ -27,12 +27,12 @@ var prysznicwzięty = true
 var jablkowplecaku = false
 var pomaranczwplecaku = true
 var trzebaiscdoszkoly = !mamyweekend && prysznicwzięty &&
-(jablkowplecaku || pomaranczwplecaku)
+    (jablkowplecaku || pomaranczwplecaku)
 disp('56' == true)
 
 
 var wzrost = 165
-var limitwzrostu = 150 
+var limitwzrostu = 150
 var wynik = wzrost >= limitwzrostu
 disp(wynik)
 
@@ -54,15 +54,15 @@ var dinozaury = [
     "Pteranodon",
     "Apatozaur"
 ]
-dinozaury[25]="Apatozaur"
+dinozaury[25] = "Apatozaur"
 dinozaury
 disp(dinozaury)
 
 
 var Zwierzęta = [
-    "kot", "Pies", "małpa","miś"
+    "kot", "Pies", "małpa", "miś"
 ]
-Zwierzęta.shift("kot")
+Zwierzęta.push("kotki")
 disp(Zwierzęta)
 
 
@@ -74,7 +74,7 @@ var dinozaury
 dinozaury.join(" * ")
 disp(dinozaury.join(" * "))
 
-var punktyorientacyjne =[]
+var punktyorientacyjne = []
 punktyorientacyjne.push("mój dom")
 punktyorientacyjne.push("ścieżka przed domem")
 punktyorientacyjne.push("migajaca lampa")
@@ -108,13 +108,13 @@ disp(zdania[Math.floor(Math.random() * zdania.length)])
 
 
 var kot = {
-    "łapy" : 4,
-    "imie" : "rademenes",
-    kolor : "kruczoczarny"
+    "łapy": 4,
+    "imie": "rademenes",
+    kolor: "kruczoczarny"
 }
 disp(kot.łapy)
 
- disp(Object.keys(kot))
+disp(Object.keys(kot))
 
 
 var pies = {
@@ -128,9 +128,9 @@ disp(Object.keys(pies))
 
 
 
-var ania = { imie: "ania", wiek: 11, szczesliweliczby: [2, 4, 6, 10]}
-var Wojtek = {imie: "Wojtek", wiek: 17, szczesliweliczby: [3, 7, 11, 21]}
-var amelka = {imie: "Amelka", wiek: 15, szczesliweliczby: [11, 21, 37, 68]}
+var ania = { imie: "ania", wiek: 11, szczesliweliczby: [2, 4, 6, 10] }
+var Wojtek = { imie: "Wojtek", wiek: 17, szczesliweliczby: [3, 7, 11, 21] }
+var amelka = { imie: "Amelka", wiek: 15, szczesliweliczby: [11, 21, 37, 68] }
 var przyjaciele = [ania, Wojtek, amelka]
 disp(przyjaciele[0])
 
@@ -141,14 +141,14 @@ for (policzoneowce = 0; policzoneowce < 10; policzoneowce++) {
 }
 console.log("Chrrrrrrr")
 
-for(var x = 2; x < 100000000000000; x = x * 5){
+for (var x = 2; x < 100000000000000; x = x * 5) {
     console.log(x)
 }
 
 
 
 var cześć = function (imie) {
-    console.log ("cześć " + imie + "!")
+    console.log("cześć " + imie + "!")
 }
 disp(cześć("Wojtek"))
 
@@ -166,6 +166,22 @@ const min = 5;
 const max = 15;
 
 //dzięki zmiennym poprawia mi się czytelność kodu i łatwiej go zmieniać
-const random = Math.floor(Math.random()*(max-min+1)+min);
+const random = Math.floor(Math.random() * (max - min + 1) + min);
 console.log(random);
+
+
+
+for (let i = 10; i > 0; i--) {
+    console.log("Trwa odliczanie", i);
+}
+
+
+
+var powiedczesc = function (imię) {
+console.log("czesc" + "!")
+}
+disp(powiedczesc)
+
+
+
 

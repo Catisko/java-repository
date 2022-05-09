@@ -12,10 +12,27 @@
 <body>
     <h1>Szubienica!</h1>
     <script>
+        function disp(text) {
+            console.log(text)
+        }
+
+
+
+        // zmienne globalne "var"
+        var arrayOfLetters = []
+        var shot
+
+        var life = prompt("podaj ilość żyć")
+        if (life === null) {
+            life = 3
+            alert("wartość żyć została domyślnie ustawiona na 3!")
+        }
+        var steps = 0
+
 
 
         // Utwórz tablicę ze słowami
-        var słowa = [
+        var words = [
             "javascript",
             "monter",
             "niesamowity",
@@ -26,58 +43,102 @@
             "monitor"
         ]
         //Wybierz słowo losowe
-        var słowo = słowa[Math.floor(Math.random() * słowa.length)]
+        var word = words[Math.floor(Math.random() * words.length)]
 
         //Skonfiguruj tablicę z odpowiedziami
-        var odpowiedzi = []
-        for (var i = 0; i < słowo.length; i++) {
-            odpowiedzi[i] = "_"
+        var answers = []
+        for (var i = 0; i < word.length; i++) {
+            answers[i] = "_"
         }
-        var pozostałelitery = słowo.length;
+        var leftLetters = word.length;
 
 
         //Główna pętla gry 
-        while (pozostałelitery > 0) {
+        while (leftLetters > 0) {
             //Pokaż graczowi bieżący wynik
-            alert(odpowiedzi.join(" "))
+            alert(answers.join(" "))
 
             //Wczytaj strzał gracza
-            var strzał = prompt("podaj literę")
-            if (strzał === null) {
+            shot = prompt("podaj literę")
+            steps = steps + 1
+            if (shot === null) {
                 //Wyjdź z głównej pętli gry
                 break
-            } else if (strzał.length !== 1) {
+            } else if (shot.length !== 1) {
                 alert("proszę podaj tylko jedną literę")
             } else {
                 //zaktualizuj stan gry na podstawie strzału
-                pozostałeliteryTemp = pozostałelitery
-                for (var i = 0; i < słowo.length; i++) {
-                    if (słowo[i] === strzał) {
-                        odpowiedzi[i] = strzał
-                        pozostałelitery = pozostałelitery - 1
+                leftLettersTemp = leftLetters
+                for (var i = 0; i < word.length; i++) {
+                    if (word[i] === shot) {
+                        answers[i] = shot
+                        leftLetters = leftLetters - 1
                         alert("Poprawna odpowiedz")
                     }
+
                 }
-                
-                if(pozostałeliteryTemp == pozostałelitery){
+
+                if (leftLettersTemp == leftLetters) {
+                    life = life - 1
                     alert("Niepoprawna odpowiedz")
                 }
-            }  
+            }
+
+            var didHeFindLetter = false
+            for (i = 0; i < arrayOfLetters.length; i++) {
+                if (arrayOfLetters[i] === shot) {
+                    didHeFindLetter = true
+                }
+            }
+            if (didHeFindLetter === true) {
+                alert("Literka juz zostala uzyta, uzyte dotychczas literki to: " + arrayOfLetters.join(" "))
+            } else {
+                arrayOfLetters.push(shot)
+            }
+
+            if (life === 0) {
+                alert("Skończyły ci się życia! Dziekuje za gre.")
+                alert("szukane słowo to " + word)
+                break
+            }
+            if (leftLetters === 0) {
+                alert("Dobra robota Dziekuje za gre.")
+                alert("szukane słowo to " + word)
+                alert("odgadles haslo w tylu krokach: " + steps)
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            // alert("twoje literki")
+            // for (i = 0; i < tablicaLiter.length; i++) {
+            //     alert(tablicaLiter[i])
+            // }
         }
+
+
         //kiedy gracz poda nieistniejaca literke wystaw komunikat o braku takiej literki
 
 
-        //2. zapamietuj dotychczasowe wybrane litery jezeli gracz drugi raz wybierze taka sama litere wystaw komunikat ze wystawil ponownie taka sama litere 
+        //2. zapamietuj dotychczasowe wybrane litery jezeli gracz drugi raz wybierze taka sama litere wystaw komunikat ze wystawil ponownie taka sama litere
 
 
 
-        //Koniec głównej pętli gry 
+        //Koniec głównej pętli gry
 
 
 
         //pokaż odpowiedzi i pogratuluj
-        alert(odpowiedzi.join(" "))
-        alert("Dobra robota, szukane słowo to " + słowo)
+
+
     </script>
 </body>
 
