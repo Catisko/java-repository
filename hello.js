@@ -177,10 +177,6 @@ for (let i = 10; i > 0; i--) {
 
 
 
-var powiedczesc = function (imię) {
-console.log("czesc" + "!")
-}
-disp(powiedczesc)
 
 
 

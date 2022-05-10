@@ -43,14 +43,14 @@
             "monitor"
         ]
         //Wybierz słowo losowe
-        var word = words[Math.floor(Math.random() * words.length)]
+        var randomWord = words[Math.floor(Math.random() * words.length)]
 
         //Skonfiguruj tablicę z odpowiedziami
         var answers = []
-        for (var i = 0; i < word.length; i++) {
+        for (var i = 0; i < randomWord.length; i++) {
             answers[i] = "_"
         }
-        var leftLetters = word.length;
+        var leftLetters = randomWord.length;
 
 
         //Główna pętla gry 
@@ -69,8 +69,8 @@
             } else {
                 //zaktualizuj stan gry na podstawie strzału
                 leftLettersTemp = leftLetters
-                for (var i = 0; i < word.length; i++) {
-                    if (word[i] === shot) {
+                for (var i = 0; i < randomWord.length; i++) {
+                    if (randomWord[i] === shot) {
                         answers[i] = shot
                         leftLetters = leftLetters - 1
                         alert("Poprawna odpowiedz")
@@ -98,12 +98,12 @@
 
             if (life === 0) {
                 alert("Skończyły ci się życia! Dziekuje za gre.")
-                alert("szukane słowo to " + word)
+                alert("szukane słowo to " + randomWord)
                 break
             }
             if (leftLetters === 0) {
                 alert("Dobra robota Dziekuje za gre.")
-                alert("szukane słowo to " + word)
+                alert("szukane słowo to " + randomWord)
                 alert("odgadles haslo w tylu krokach: " + steps)
             }
 
