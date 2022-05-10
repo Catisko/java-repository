@@ -296,4 +296,30 @@ disp(mnożenie("36325", "9824"))
 
 
 
+var wybierzsłowo = function(słowa){
+    return słowa[Math.floor(Math.random() * słowa.length)]
+}
 
+
+
+
+
+
+
+
+
+// Utwórz tablicę ze słowami
+var słowa = [
+    "javascript",
+    "monter",
+    "niesamowity",
+    "piłka",
+    "zakola",
+    "kapsel",
+    "geniusz",
+    "monitor"
+]
+//Wybierz słowo losowe
+
+var wybierzLosoweSłowo = wybierzsłowo(słowa)
+disp(wybierzsłowo(słowa))
