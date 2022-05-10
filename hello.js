@@ -177,6 +177,122 @@ for (let i = 10; i > 0; i--) {
 
 
 
+var firstOurFunction = function () {
+    console.log("do something")
+}
+
+firstOurFunction("do something")
+
+
+var saySomething = function (Name) {
+    console.log("Hey " + Name + "!")
+}
+saySomething("Asia")
+
+
+var drawCats = function (howMany) {
+    for (var i = 0; i < howMany; i++) {
+        console.log(i + " =^.^= ")
+    }
+}
+drawCats(5)
+
+
+var drawManyTimes = function (howMany, drawWhat) {
+    for (var i = 0; i < howMany; i++) {
+        console.log(i + " " + drawWhat)
+    }
+}
+
+drawManyTimes(5, "<3")
+
+
+drawManyTimes(10, ">_<")
+
+var doubleUp = function (number) {
+    return number * 2
+}
+
+disp(doubleUp(doubleUp(6)))
+
+
+var takeRandomWords = function (words) {
+    return words[Math.floor(Math.random() * words.length)]
+}
+var randomWords = [
+    "Kapsel",
+    "kwiat",
+    "rzepak",
+    "pociąg"
+
+]
+disp(takeRandomWords(randomWords))
+
+var randomBodyParts = ["head", "shoulders", "arm",]
+var randomAdjectives = ["dirty", "stupid", "beautiful"]
+var randomWords = ["fly", "monkey", "dog", "kitty"]
+
+var randomChain = "Your " + takeRandomWords(randomBodyParts) + " its like " + takeRandomWords(randomAdjectives) + " " + takeRandomWords(randomWords) + "!!!"
+disp(randomChain)
+
+
+generateRandomOffense = function () {
+    var randomBodyParts = ["head", "shoulders", "arm",]
+    var randomAdjectives = ["dirty", "stupid", "beautiful"]
+    var randomWords = ["fly", "monkey", "dog", "kitty"]
+
+    var randomChain = "Your " + takeRandomWords(randomBodyParts) + " its like " + takeRandomWords(randomAdjectives) + " " + takeRandomWords(randomWords) + "!!!"
+    return randomChain
+}
+
+disp(generateRandomOffense())
+
+
+var letterFive = function (name) {
+    if (name.length < 1) {
+        return
+    }
+    return "five letter of your name is " + name[5] + "."
+}
+disp(letterFive("Wojtek"))
+
+var medalForScore = function (score) {
+    if (score < 3)
+        return "Bronze"
+    if (score < 7) {
+        return "Silver"
+    }
+    return "Gold"
+}
+
+disp(medalForScore(1))
+
+
+
+function doubleUp(number) {
+    return number * 2
+}
+
+disp(doubleUp(5))
+
+
+function add(number1, number2) {
+    var score = number1 + number2
+    return score
+}
+var value = add(57, 12)
+disp(value)
+
+function mnożenie(number, number2) {
+    return number * number2
+}
+disp(mnożenie("36325", "9824"))
+
+
+
+
+
+
 
 
 
