@@ -73,7 +73,7 @@
 
         //ok
         var checkEndGameCondition = function (usersLifeNumber, leftLetters) {
-            if (usersLifeNumber === 0) {
+            if (usersLifeNumber < 0) {
                 alert("Skończyły ci się życia! Dziekuje za gre. Szukane słowo to " + randomWord)
                 return true
             } else if (leftLetters === 0) {
@@ -148,7 +148,28 @@
         }
         //pokaż odpowiedzi i pogratuluj
 
+
+
+// 1. odgadniecie wszystkich liter i zakonczenie gry
+// 2. nacisniecie przycisku anuluj konczy gre
+// 3. utracenie wszystkich żyć, konczy gre
+// 4. wyłączenie strony z grą
+
+
+
+
+
+
+
     </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
