@@ -12,11 +12,12 @@
 <body>
     <h1>Szubienica!</h1>
     <script>
-
-        var takeWord = function () {
+        //ok
+        var chooseRandomWord = function () {
             return tableOfWords[Math.floor(Math.random() * tableOfWords.length)]
         }
 
+        //ok
         var prepareTableOfAnswers = function (word) {
             var answers = []
             for (var i = 0; i < word.length; i++) {
@@ -24,26 +25,77 @@
             }
             return answers
         }
+
+        //ok
         var showCurrentScore = function (answers) {
-            alert(answers.join(" "))
+            alert("Bieżący stan gry     " + answers.join(" "))
         }
+
+        //ok
         var loadPlayerShot = function () {
             return prompt("podaj literę")
         }
-        var updateGameState = function (shot, word, answers) {
-            var howManyLettersFound = 0
-            for (var i = 0; i < word.length; i++) {
-                if (word[i] === shot) {
+
+
+        //ok
+        var updateGameState = function (shot, randomWord, answers, leftLetters, usersLifeNumber) {
+            var leftLettersTemp = leftLetters
+            for (var i = 0; i < randomWord.length; i++) {
+                if (randomWord[i] === shot) {
                     answers[i] = shot
-                    howManyLettersFound = howManyLettersFound + 1
+                    leftLetters = leftLetters - 1
                 }
             }
-            return { answers, howManyLettersFound }
+
+            if (leftLettersTemp == leftLetters) {
+                usersLifeNumber = usersLifeNumber - 1
+                alert("Niepoprawna odpowiedz")
+            } else {
+                alert("Poprawna odpowiedz")
+            }
+            return { answers, leftLetters, usersLifeNumber }
         }
+
+        //ok
         var showAnswersAndCongratulate = function (answers) {
-            alert(answers.join(" "))
             alert("Dobra robota, szukane słowo to " + randomWord)
         }
+
+        //ok
+        var initialStateOfLife = function () {
+            var usersLifeNumber = prompt("Podaj ilość żyć")
+            if (usersLifeNumber === null) {
+                usersLifeNumber = 3
+                alert("Wartość żyć została domyślnie ustawiona na 3!")
+            }
+            return usersLifeNumber
+        }
+
+        //ok
+        var checkEndGameCondition = function (usersLifeNumber, leftLetters) {
+            if (usersLifeNumber === 0) {
+                alert("Skończyły ci się życia! Dziekuje za gre. Szukane słowo to " + randomWord)
+                return true
+            } else if (leftLetters === 0) {
+                alert("Dobra robota, szukane słowo to " + randomWord)
+                return true
+            } else {
+                return false
+            }
+        }
+
+
+
+
+
+
+        // dodanie ilości żyć domyślnie i z opcją wyboru ilości przez gracza. (komunikat o utracie żyć)
+        // co strzał informuje o trafieniu true/false błędna odp = -1 życie (wyświetla komunikat o końcu żyć i kończy oraz podaje hasło)
+        // informuje o tym czy literka została użyta ponownie, zapamiętuje już użyte literki (wystawia komunikat)
+        // liczy kroki w ilu gracz odgadł hasło(wystawia komunikat)
+
+
+
 
         // Utwórz tablicę ze słowami
         var tableOfWords = [
@@ -57,43 +109,45 @@
             "monitor"
         ]
 
+        //tutaaj zapytaj o zycia i przypisz do jakiejs zmiennej np usersLifeNumber
+        var usersLifeNumber = initialStateOfLife()
 
         //Wybierz słowo losowe
-        var randomWord = takeWord(tableOfWords)
+        var randomWord = chooseRandomWord(tableOfWords)
 
         //Skonfiguruj tablicę z odpowiedziami
         var answers = prepareTableOfAnswers(randomWord)
         var leftLetters = randomWord.length;
 
+
         //Główna pętla gry 
-        while (leftLetters > 0) {
+        while (true) {
 
             //Pokaż graczowi bieżący wynik
             showCurrentScore(answers)
 
             //Wczytaj strzał gracza
+
             var shot = loadPlayerShot()
             if (shot === null) {
-
                 //Wyjdź z głównej pętli gry
                 break
-            } else if (shot.length !== 1) {
-                alert("proszę podaj tylko jedną literę")
-            } else {
-
-                //zaktualizuj stan gry na podstawie strzału
-                var howManyLettersFound
-                ({answers, howManyLettersFound} = updateGameState(shot, randomWord, answers))
-                leftLetters = leftLetters - howManyLettersFound
-
             }
+            else if (shot.length !== 1) {
+                alert("proszę podaj tylko jedną literę")
+            }
+            else {
+                ({ answers, leftLetters, usersLifeNumber } = updateGameState(shot, randomWord, answers, leftLetters, usersLifeNumber)) 
+              
 
-
-            //Koniec głównej pętli gry 
+                if (checkEndGameCondition(usersLifeNumber, leftLetters)) {
+                    break
+                }
+                //Koniec głównej pętli gry 
+            }
         }
-
         //pokaż odpowiedzi i pogratuluj
-        showAnswersAndCongratulate(answers)
+
     </script>
 </body>
 
