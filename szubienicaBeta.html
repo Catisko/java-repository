@@ -40,8 +40,10 @@
             }
             return { answers, howManyLettersFound }
         }
-
-
+        var showAnswersAndCongratulate = function (answers) {
+            alert(answers.join(" "))
+            alert("Dobra robota, szukane słowo to " + randomWord)
+        }
 
         // Utwórz tablicę ze słowami
         var tableOfWords = [
@@ -91,8 +93,7 @@
         }
 
         //pokaż odpowiedzi i pogratuluj
-        alert(answers.join(" "))
-        alert("Dobra robota, szukane słowo to " + randomWord)
+        showAnswersAndCongratulate(answers)
     </script>
 </body>
 
