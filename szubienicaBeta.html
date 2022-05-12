@@ -52,7 +52,7 @@
                 alert("Niepoprawna odpowiedz.") //3 
             }
             else {
-                alert("Poprawna odpowiedz")  //1.
+                alert("Poprawna odpowiedz.")  //1.
             }
             return { answers, leftLetters, usersLifeNumber }  //1. 3 
         }
@@ -65,9 +65,9 @@
         //ok
         var initialStateOfLife = function () {  //1. 3  4.
             var usersLifeNumber = prompt("Podaj ilość żyć")
-            if (usersLifeNumber === null) {  //1. 3 
+            if (usersLifeNumber === null) {  //1. 3. 
                 usersLifeNumber = 3
-                alert("Wartość żyć została domyślnie ustawiona na 3")  //1. 3 
+                alert("Wartość żyć została domyślnie ustawiona na 3.")  //1. 3. 5.
             }
             return usersLifeNumber  //1. 3 
         }
@@ -99,7 +99,7 @@
 
 
         // Utwórz tablicę ze słowami
-        var tableOfWords = [ //1. 2. 3. 4.
+        var tableOfWords = [ //1. 2. 3. 4. 5. 
             "javascript",
             "monter",
             "niesamowity",
@@ -111,25 +111,25 @@
         ]
 
         //tutaaj zapytaj o zycia i przypisz do jakiejs zmiennej np usersLifeNumber
-        var usersLifeNumber = initialStateOfLife() //1. 2. 3. 4.
+        var usersLifeNumber = initialStateOfLife() //1. 2. 3. 4. 5.
 
         //Wybierz słowo losowe
-        var randomWord = chooseRandomWord(tableOfWords) //1. 2.  3.
+        var randomWord = chooseRandomWord(tableOfWords) //1. 2.  3. 5.
 
         //Skonfiguruj tablicę z odpowiedziami
-        var answers = prepareTableOfAnswers(randomWord) //1. 2.  3.
-        var leftLetters = randomWord.length; //1. 2. 3.
+        var answers = prepareTableOfAnswers(randomWord) //1. 2.  3. 5.
+        var leftLetters = randomWord.length; //1. 2. 3. 5.
 
 
         //Główna pętla gry 
-        while (true) { //1. 2. 3.
+        while (true) { //1. 2. 3. 5. 
 
             //Pokaż graczowi bieżący wynik
-            showCurrentScore(answers) //1. 2. 3.
+            showCurrentScore(answers) //1. 2. 3. 5.
 
             //Wczytaj strzał gracza
 
-            var shot = loadPlayerShot() //1. 3.
+            var shot = loadPlayerShot() //1. 3. 5.
             if (shot === null) { //2.
                 //Wyjdź z głównej pętli gry
                 break //2.
