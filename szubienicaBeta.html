@@ -26,14 +26,35 @@
             return answers //1. 3 2. 4. 5.
         }
 
+        var whichLettersWereUsed = function (shot, arrayOfLetters) {
+
+            var foundLettersUsedTwice = false
+            var arrayOfLetters = arrayOfLetters
+            for (i = 0; i < arrayOfLetters.length; i++) {
+                if (arrayOfLetters[i] === shot) {
+                    foundLettersUsedTwice = true
+                }
+
+            }
+            if (foundLettersUsedTwice != true) {
+                arrayOfLetters.push(shot)
+            } else {
+                alert("Literka juz zostala uzyta.")
+            }
+            return { arrayOfLetters, foundLettersUsedTwice }
+        }
+
+
         //ok
-        var showCurrentScore = function (answers) {  //1. 3. 2. 5.
-            alert("Bieżący stan gry     " + answers.join(" "))
+        var showCurrentScore = function (answers, arrayOfLetters) {  //1. 3. 2. 5.
+            alert("Bieżący stan gry " + answers.join(" ") + " , użyte dotychczas literki to: " + arrayOfLetters.join(","))
         }
 
         //ok
-        var loadPlayerShot = function () {  //1. 3 2. 5.
-            return prompt("podaj literę")
+        var loadPlayerShot = function (steps, shot) {  //1. 3 2. 5.
+            var shot = prompt("podaj literę")
+            steps = steps + 1
+            return shot
         }
 
 
@@ -78,6 +99,7 @@
                 alert("Skończyły ci się życia! Dziekuje za gre. Szukane słowo to " + randomWord)
                 return true //3 
             } else if (leftLetters === 0) {  //1.
+                alert("odgadles haslo w tylu krokach:  " + steps)
                 alert("Dobra robota, szukane słowo to " + randomWord)  //1.
                 return true  //1.
             } else { //1. //3.
@@ -95,9 +117,9 @@
         // informuje o tym czy literka została użyta ponownie, zapamiętuje już użyte literki (wystawia komunikat)
         // liczy kroki w ilu gracz odgadł hasło(wystawia komunikat)
 
-
-
-
+        var steps = 0
+        var arrayOfLetters = []
+        var foundLettersUsedTwice = false
         // Utwórz tablicę ze słowami
         var tableOfWords = [ //1. 2. 3. 4. 5. 
             "javascript",
@@ -110,7 +132,8 @@
             "monitor"
         ]
 
-        //tutaaj zapytaj o zycia i przypisz do jakiejs zmiennej np usersLifeNumber
+
+        //tutaj zapytaj o zycia i przypisz do jakiejs zmiennej np usersLifeNumber
         var usersLifeNumber = initialStateOfLife() //1. 2. 3. 4. 5.
 
         //Wybierz słowo losowe
@@ -123,13 +146,11 @@
 
         //Główna pętla gry 
         while (true) { //1. 2. 3. 5. 
-
             //Pokaż graczowi bieżący wynik
-            showCurrentScore(answers) //1. 2. 3. 5.
+            showCurrentScore(answers, arrayOfLetters) //1. 2. 3. 5.
 
             //Wczytaj strzał gracza
-
-            var shot = loadPlayerShot() //1. 3. 5.
+            var shot = loadPlayerShot(steps) //1. 3. 5.
             if (shot === null) { //2.
                 //Wyjdź z głównej pętli gry
                 break //2.
@@ -138,11 +159,13 @@
                 alert("Proszę podaj tylko jedną literę.")
             }
             else {
-                ({ answers, leftLetters, usersLifeNumber } = updateGameState(shot, randomWord, answers, leftLetters, usersLifeNumber)) //1. 3.
+                    ({ arrayOfLetters, foundLettersUsedTwice } = whichLettersWereUsed(shot, arrayOfLetters))
+                if (!foundLettersUsedTwice) {
+                    ({ answers, leftLetters, usersLifeNumber } = updateGameState(shot, randomWord, answers, leftLetters, usersLifeNumber)) //1. 3.
 
-
-                if (checkEndGameCondition(usersLifeNumber, leftLetters)) {   //1. 3.
-                    break
+                    if (checkEndGameCondition(usersLifeNumber, leftLetters)) {   //1. 3.
+                        break
+                    }
                 }
                 //Koniec głównej pętli gry 
             }
