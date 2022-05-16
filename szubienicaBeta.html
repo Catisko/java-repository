@@ -258,7 +258,7 @@
         // 3. test shot = 'c'  arrayOfLetters = ['a' 'b']  arrayOfLetters = ['a' 'b' 'c'], foundLettersUsedTwice=false
 
         var checkWhichLettersWereUsed = function () {
-            var testShot = "a"
+            var testShot = "A"
             var testArrayOfLetters = []
             var arrayOfLetters
             var foundLettersUsedTwice;
@@ -269,18 +269,26 @@
             } else {
                 alert("funkcja nie działa prawidłowo " + foundLettersUsedTwice)
             }
-            if (testShot.length === arrayOfLetters.length) {
-                alert("strzał ma taką samą długość"+ arrayOfLetters.length)
+
+            if (1 === arrayOfLetters.length) {
+                alert("Tabela ma taką samą długość")
             } else {
-                alert("strzał nie ma takiej samej długości")
+                alert("Tabela nie ma takiej samej długości")
+            } 
+            
+            if (arrayOfLetters[0] === "A") {
+                alert("Literka znajduje sie na tym miejscu")
+            } else {
+                alert("Literka nie znajduje sie na tym miejscu")
             }
 
 
-// Poznanie i wykonywanie testów białoskrzynkowych w prostej grze.
+
+            // Poznanie i wykonywanie testów białoskrzynkowych w prostej grze.
 
             //////////////// liczy długość i pokazuje na ktorym jest miejscu
 
-            testShot = "a"
+            testShot = "b"
             testArrayOfLetters = ["a", "b"];
             ({ arrayOfLetters, foundLettersUsedTwice } = whichLettersWereUsed(testShot, testArrayOfLetters))
             if (foundLettersUsedTwice == true) {
@@ -289,6 +297,19 @@
                 alert("funkcja nie działa prawidłowo")
             }
 
+            if (2 === arrayOfLetters.length) {
+                alert("Tabela ma taką samą długość")
+            } else {
+                alert("Tabela nie ma takiej samej długości")
+            } 
+            
+            if (arrayOfLetters[1] === "b") {
+                alert("Literka znajduje sie na tym miejscu")
+            } else {
+                alert("Literka nie znajduje sie na tym miejscu")
+            }
+
+
             testShot = "c"
             testArrayOfLetters = ["a", "b"];
             ({ arrayOfLetters, foundLettersUsedTwice } = whichLettersWereUsed(testShot, testArrayOfLetters))
@@ -296,6 +317,18 @@
                 alert("funkcja działa prawidłowo 3")
             } else {
                 alert("funkcja nie działa prawidłowo")
+            }
+            
+            if (3 === arrayOfLetters.length) {
+                alert("Tabela ma taką samą długość")
+            } else {
+                alert("Tabela nie ma takiej samej długości")
+            } 
+            
+            if (arrayOfLetters[2] === "c") {
+                alert("Literka znajduje sie na tym miejscu")
+            } else {
+                alert("Literka nie znajduje sie na tym miejscu")
             }
 
         }
