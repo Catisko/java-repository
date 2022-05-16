@@ -4,7 +4,7 @@ import { tests } from './tests_szubienica.js'
 let steps = 0
 let arrayOfLetters = []
 let foundLettersUsedTwice = false
-let tableOfWords = [ //1. 2. 3. 4. 5. 
+let tableOfWords = [
     "javascript",
     "monter",
     "niesamowity",
@@ -14,30 +14,32 @@ let tableOfWords = [ //1. 2. 3. 4. 5.
     "geniusz",
     "monitor"
 ]
-let usersLifeNumber = functions.initialStateOfLife() //1. 2. 3. 4. 5.
-let randomWord = functions.chooseRandomWord(tableOfWords) //1. 2. 3. 5.
-let answers = functions.prepareTableOfAnswers(randomWord) //1. 2. 3. 5.
-let leftLetters = randomWord.length; //1. 2. 3. 5.
+
+let usersLifeNumber = functions.initialStateOfLife()
+let randomWord = functions.chooseRandomWord(tableOfWords)
+let answers = functions.prepareTableOfAnswers(randomWord)
+let leftLetters = randomWord.length;
 
 
-while (true) { //1. 2. 3. 5. 
-    functions.showCurrentScore(answers, arrayOfLetters) //1. 2. 3. 5.
+while (true) {
+    functions.showCurrentScore(answers, arrayOfLetters)
 
-    let shot = functions.loadPlayerShot(steps) //1. 3. 5.
+    let shot = functions.loadPlayerShot(steps)
     steps = steps + 1
-    if (shot === null) {//2.
+    if (shot === null) {
+        2.
         alert('Pusia')
-        break //2.
+        break
     }
-    else if (shot.length !== 1) { //5.
+    else if (shot.length !== 1) {
         alert("Proszę podaj tylko jedną literę.")
     }
     else {
         ({ arrayOfLetters, foundLettersUsedTwice } = functions.whichLettersWereUsed(shot, arrayOfLetters))
         if (!foundLettersUsedTwice) {
-            ({ answers, leftLetters, usersLifeNumber } = functions.updateGameState(shot, randomWord, answers, leftLetters, usersLifeNumber)) //1. 3.
+            ({ answers, leftLetters, usersLifeNumber } = functions.updateGameState(shot, randomWord, answers, leftLetters, usersLifeNumber))
 
-            if (functions.checkEndGameCondition(usersLifeNumber, leftLetters, randomWord, steps, false)) { //1. 3.
+            if (functions.checkEndGameCondition(usersLifeNumber, leftLetters, randomWord, steps, false)) {
                 break
             }
         }
@@ -45,7 +47,7 @@ while (true) { //1. 2. 3. 5.
 }
 
 
-//Tests 
+//Tests
 tests.checkPrepareTableOfAnswers()
 tests.checkUsersLifeNumber()
 tests.checkWhichLettersWereUsed()

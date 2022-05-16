@@ -1,13 +1,13 @@
-const chooseRandomWord = function (tableOfWords) {  //1. 3,  2. 4. 5.
+const chooseRandomWord = function (tableOfWords) {
     return tableOfWords[Math.floor(Math.random() * tableOfWords.length)]
 }
 
-const prepareTableOfAnswers = function (word) {  //1. 3 2. 4. 5.
+const prepareTableOfAnswers = function (word) {
     let answers = []
-    for (let i = 0; i < word.length; i++) {  //1. 3 2. 4. 5.
+    for (let i = 0; i < word.length; i++) {
         answers[i] = "_"
     }
-    return answers //1. 3 2. 4. 5.
+    return answers
 }
 
 const whichLettersWereUsed = function (shot, arrayOfLetters) {
@@ -23,66 +23,67 @@ const whichLettersWereUsed = function (shot, arrayOfLetters) {
     if (foundLettersUsedTwice != true) {
         arrayOfLetters.push(shot)
     } else {
-        // alert("Literka juz zostala uzyta.")
+        alert("Literka juz zostala uzyta.")
     }
     return { arrayOfLetters, foundLettersUsedTwice }
 }
 
-const showCurrentScore = function (answers, arrayOfLetters) {  //1. 3. 2. 5.
+const showCurrentScore = function (answers, arrayOfLetters) {
     alert("Bieżący stan gry " + answers.join(" ") + " , użyte dotychczas literki to: " + arrayOfLetters.join(","))
 }
 
-const loadPlayerShot = function (steps, shot) {  //1. 3 2. 5.
+const loadPlayerShot = function (steps, shot) {
     shot = prompt("podaj literę")
     steps = steps + 1
     return shot
 }
-const updateGameState = function (shot, randomWord, answers, leftLetters, usersLifeNumber) {  //1. 3  5.
+
+const updateGameState = function (shot, randomWord, answers, leftLetters, usersLifeNumber) {
     let leftLettersTemp = leftLetters
-    for (let i = 0; i < randomWord.length; i++) {  //1. 3  5.
-        if (randomWord[i] === shot) {  //1. 3  5.
+    for (let i = 0; i < randomWord.length; i++) {
+        if (randomWord[i] === shot) {
             answers[i] = shot
             leftLetters = leftLetters - 1
         }
     }
 
-    if (leftLettersTemp == leftLetters) {  //3 
+    if (leftLettersTemp == leftLetters) {
         usersLifeNumber = usersLifeNumber - 1
-        alert("Niepoprawna odpowiedz.") //3 
+        alert("Niepoprawna odpowiedz.")
     }
     else {
-        alert("Poprawna odpowiedz.")  //1.
+        alert("Poprawna odpowiedz.")
     }
-    return { answers, leftLetters, usersLifeNumber }  //1. 3 
+    return { answers, leftLetters, usersLifeNumber }
 }
 
-const showAnswersAndCongratulate = function (randomWord) {  //1.
+const showAnswersAndCongratulate = function (randomWord) {
     alert("Dobra robota, szukane słowo to " + randomWord)
 }
 
-const initialStateOfLife = function () {  //1. 3  4.
+const initialStateOfLife = function () {
     let usersLifeNumber = prompt("Podaj ilość żyć")
-    if (usersLifeNumber === null) {  //1. 3. 
+    if (usersLifeNumber === null) {
         usersLifeNumber = 3
-        alert("Wartość żyć została domyślnie ustawiona na 3.")  //1. 3. 5.
+        alert("Wartość żyć została domyślnie ustawiona na 3.")
     }
-    return usersLifeNumber  //1. 3 
+    return usersLifeNumber
 }
 
-const checkEndGameCondition = function (usersLifeNumber, leftLetters, randomWord, steps, ifUsedInTest) {  //1. 3 
+const checkEndGameCondition = function (usersLifeNumber, leftLetters, randomWord, steps, ifUsedInTest) {
     if (usersLifeNumber <= 0) {
         if (ifUsedInTest == false) {
             alert("Skończyły ci się życia! Dziekuje za gre. Szukane słowo to " + randomWord)
         }
-        return true //3 
+        return true
     } else if (leftLetters === 0) {
         if (ifUsedInTest == false) {
             alert("odgadles haslo w tylu krokach:  " + steps)
             alert("Dobra robota, szukane słowo to " + randomWord)
-        } //1.
-        return true  //1.
-    } else { //1. //3.
-        return false //1. 3. 
+        }
+        return true
+    } else {
+        return false
     }
 }
 
