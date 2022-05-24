@@ -9,10 +9,10 @@ import { functions } from './functions.js'
 
 
 const checkPrepareTableOfAnswers = function () {
-    let word = "monitor"
-    let preparedAnswer = functions.prepareTableOfAnswers(word)
+    let testWord = "monitor"
+    let preparedAnswer = functions.prepareTableOfAnswers(testWord)
 
-    if (preparedAnswer.length === word.length) {
+    if (preparedAnswer.length === testWord.length) {
         alert("przygotowane odpowiedzi mają poprawną długość")
     } else {
         alert("przygotowane odpowiedzi nie mają poprawnej długości")
@@ -141,4 +141,127 @@ const checkWhichLettersWereUsed = function () {
 }
 
 
-export const tests = { checkPrepareTableOfAnswers, checkUsersLifeNumber, checkWhichLettersWereUsed }
+//1. testuje shot-'a', randomWord-'zakola', answers-['z','_','k','o','l','_'], leftLetters-2, usersLifeNumber[2] wynik: answers-['z','a','k','o','l','a'], leftletters-0, usersLifeNumber[2]
+//2. testuje shot-'y', randomword-'mentor', answers-['m','_','n','t','o','r'], leftletters-1, usersLifeNumber[1] wynik: answers-['m','_','n','t','o','r'], leftletters-1, usersLifeNumber[0]
+//3. testuje shot-'4', randomword-'kapsel', answers-['k','_','p','s','e','l'], leftletters-1, usersLifeNumber[1] wynik: answers-['k','_','p','s','e','l'], leftletters-1, usersLifeNumber[0]
+//4. testuje shot-'m', randomword-'monitor', answers-['_','_','n','i','t','_','r'], leftletters-3, userslifenumber[1] wynik: answers-['_','_','n','i','t','_','r'], leftletters-3, userslifenumber[0]
+
+
+
+const checkUpdateGameState = function () {
+    let testShot = 'a'
+    let testRandomWord = 'zakola'
+    let answers = ['z', '_', 'k', 'o', 'l', '_']
+    let leftLetters = 2
+    let usersLifeNumber = 2;
+    ({ answers, leftLetters, usersLifeNumber } = functions.updateGameState(testShot, testRandomWord, answers, leftLetters, usersLifeNumber))
+    if (leftLetters === 0) {
+        alert('TEST1. obliczanie długości pozostałych liter działa poprawnie ')
+    } else {
+        alert('TEST1. obliczanie długości pozostałych liter działa nie poprawnie ')
+    }
+
+    if (answers[1] == 'a' && answers[5] == 'a') {
+        alert('TEST1. Logika sprawdzająca położenie miejsca liter działa poprawnie')
+    } else {
+        alert('TEST1. Logika sprawdzająca położenie miejsca liter nie działa poprawnie')
+    }
+
+    if (usersLifeNumber == 2) {
+        alert('TEST1. Wartość żyć została poprawnie zaktualizowana')
+    } else {
+        alert('TEST1. Wartość żyć nie została poprawnie zaktualizowana')
+    }
+
+    testShot = 'y'
+    testRandomWord = 'mentor'
+    answers = ['m', '_', 'n', 't', 'o', 'r']
+    leftLetters = 1
+    usersLifeNumber = 1;
+    ({ answers, leftLetters, usersLifeNumber } = functions.updateGameState(testShot, testRandomWord, answers, leftLetters, usersLifeNumber))
+    if (usersLifeNumber == 0) {
+        alert('TEST2. Wartość żyć została poprawnie zaktualizowana')
+    } else {
+        alert('TEST2. Wartość żyć nie została poprawnie zaktualizowana')
+    }
+
+    if (leftLetters === 1) {
+        alert('TEST2. obliczanie długości pozostałych liter działa poprawnie ')
+    } else {
+        alert('TEST2. obliczanie długości pozostałych liter działa nie poprawnie ')
+    }
+
+    if (answers[1] == '_') {
+        alert('TEST2. Logika sprawdzająca położenie miejsca liter działa poprawnie')
+    } else {
+        alert('TEST2. Logika sprawdzająca położenie miejsca liter nie działa poprawnie')
+    }
+
+    testShot = '4'
+    testRandomWord = 'kapsel'
+    answers = ['k','_','p','s','e','l']
+    leftLetters = 1
+    usersLifeNumber = 1;
+    ({ answers, leftLetters, usersLifeNumber } = functions.updateGameState(testShot, testRandomWord, answers, leftLetters, usersLifeNumber))
+    if (usersLifeNumber == 0) {
+        alert('TEST3. Wartość żyć została poprawnie zaktualizowana')
+    } else {
+        alert('TEST3. Wartość żyć nie została poprawnie zaktualizowana')
+    }
+
+    if (leftLetters === 1) {
+        alert('TEST3. obliczanie długości pozostałych liter działa poprawnie ')
+    } else {
+        alert('TEST3. obliczanie długości pozostałych liter działa nie poprawnie ')
+    }
+
+    if (answers[1] == '_') {
+        alert('TEST3. Logika sprawdzająca położenie miejsca liter działa poprawnie')
+    } else {
+        alert('TEST3. Logika sprawdzająca położenie miejsca liter nie działa poprawnie')
+    }
+
+    testShot = 'm'
+    testRandomWord = 'monitor'
+    answers = ['_','_','n','i','t','_','r']
+    leftLetters = 3
+    usersLifeNumber = 1;
+    ({ answers, leftLetters, usersLifeNumber } = functions.updateGameState(testShot, testRandomWord, answers, leftLetters, usersLifeNumber))
+    if (usersLifeNumber == 1) {
+        alert('TEST4. Wartość żyć została poprawnie zaktualizowana')
+    } else {
+        alert('TEST4. Wartość żyć nie została poprawnie zaktualizowana')
+    }
+
+    if (leftLetters === 2) {
+        alert('TEST4. obliczanie długości pozostałych liter działa poprawnie ')
+    } else {
+        alert('TEST4. obliczanie długości pozostałych liter działa nie poprawnie ')
+    }
+
+    if (answers[0] == 'm') {
+        alert('TEST4. Logika sprawdzająca położenie miejsca liter działa poprawnie')
+    } else {
+        alert('TEST4. Logika sprawdzająca położenie miejsca liter nie działa poprawnie')
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const tests = { checkPrepareTableOfAnswers, checkUsersLifeNumber, checkWhichLettersWereUsed, checkUpdateGameState }

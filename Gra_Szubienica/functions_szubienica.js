@@ -41,7 +41,7 @@ const loadPlayerShot = function (steps, shot) {
 const updateGameState = function (shot, randomWord, answers, leftLetters, usersLifeNumber) {
     let leftLettersTemp = leftLetters
     for (let i = 0; i < randomWord.length; i++) {
-        if (randomWord[i] === shot) {
+        if (randomWord[i] === shot && answers[i] != shot) {
             answers[i] = shot
             leftLetters = leftLetters - 1
         }

@@ -9,7 +9,7 @@ let tableOfWords = [
     "monter",
     "niesamowity",
     "piłka",
-    "zakola",
+    "kanapka",
     "kapsel",
     "geniusz",
     "monitor"
@@ -48,6 +48,7 @@ while (true) {
 
 
 //Tests
-tests.checkPrepareTableOfAnswers()
-tests.checkUsersLifeNumber()
-tests.checkWhichLettersWereUsed()
+// tests.checkPrepareTableOfAnswers()
+// tests.checkUsersLifeNumber()
+// tests.checkWhichLettersWereUsed()
+tests.checkUpdateGameState()
